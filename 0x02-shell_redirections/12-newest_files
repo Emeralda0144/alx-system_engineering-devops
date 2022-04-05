@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "ls -tl | head -n 10"
+echo "ls -t | head -10"
