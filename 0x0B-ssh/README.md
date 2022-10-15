@@ -36,7 +36,7 @@ Requirements:
 * You cannot use -l
 * You do not need to handle the case of a private key protected by a passphrase
 
-``
+```
 sylvain@ubuntu$ ./0-use_a_private_key
 ubuntu@server01:~$ exit
 Connection to 8.8.8.8 closed.
@@ -139,6 +139,7 @@ In the example above, we can see that `ssh` tries to authenticate using `school`
 Now that you have successfully connected to your server, we would also like to join the party.
 
 Add the SSH public key below to your server so that we can connect using the `ubuntu` user.
+
 ```
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNdtrNGtTXe5Tp1EJQop8mOSAuRGLjJ6DW4PqX4wId/Kawz35ESampIqHSOTJmbQ8UlxdJuk0gAXKk3Ncle4safGYqM/VeDK3LN5iAJxf4kcaxNtS3eVxWBE5iF3FbIjOqwxw5Lf5sRa5yXxA8HfWidhbIG5TqKL922hPgsCGABIrXRlfZYeC0FEuPWdr6smOElSVvIXthRWp9cr685KdCI+COxlj1RdVsvIo+zunmLACF9PYdjB2s96Fn0ocD3c5SGLvDOFCyvDojSAOyE70ebIElnskKsDTGwfT4P6jh9OBzTyQEIS2jOaE5RQq4IB4DsMhvbjDSQrP0MdCLgwkN
 ```
@@ -152,6 +153,7 @@ Requirements:
 * Your SSH client configuration must be configured to refuse to authenticate using a password
 
 Example:
+
 ```
 vagrant@ubuntu:~$ sudo puppet apply 100-puppet_ssh_config.pp
 Notice: Compiled catalog for ubuntu-xenial in environment production in 0.11 seconds
