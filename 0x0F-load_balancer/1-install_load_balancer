@@ -1,52 +1,37 @@
 #!/usr/bin/env bash
-# Installs, configures, and starts the load balancer
-apt-get update
-apt-get -y install --no-install-recommends software-properties-common
-add-apt-repository -y ppa:vbernat/haproxy-2.4
-apt-get -y install haproxy
-DOMAIN_NAME='emediongfrancis.tech'
-INIT_FILE='/etc/default/haproxy'
-CONFIG_FILE='/etc/haproxy/haproxy.cfg'
-HAPROXY_LB_CONFIG=\
-"
-#--$DOMAIN_NAME-params-begin--
-backend $DOMAIN_NAME-backend
-	balance roundrobin
-	server 618-web-01 34.139.205.239:80 check
-	server 618-web-02 44.200.28.42:80 check
-frontend $DOMAIN_NAME-frontend
-	bind *:80
-	mode http
-	default_backend $DOMAIN_NAME-backend
-#--$DOMAIN_NAME-params-end--
-"
+# 
+# Configure Nginx so that its HTTP response contains
+# a custom header
+#
 
-[ -f "$INIT_FILE" ] || touch "$INIT_FILE"
-[ -f "$CONFIG_FILE" ] || touch "$CONFIG_FILE"
+# Update packages
+sudo apt update
 
-CONFIG_WORDS=$(grep -Eco "$DOMAIN_NAME-backend" < $CONFIG_FILE)
+# Add HAProxy PPA
+sudo apt install -y software-properties-common
+sudo add-apt-repository ppa:vbernat/haproxy-1.8 -y
+sudo apt update
 
-if [ "$(grep -Eco '^ENABLED=[01]$' < $INIT_FILE)" -gt 0 ]; then
-	sed -i 's/^ENABLED=0$/ENABLED=1/' "$INIT_FILE"
-else
-	echo 'ENABLED=1' >> $INIT_FILE
-fi
+# Install HAProxy
+sudo apt install -y haproxy=1.8.\*
 
-if [ "$CONFIG_WORDS" -eq 0 ]; then
-	echo -e "$HAPROXY_LB_CONFIG" >> $CONFIG_FILE
-else
-	start_tkn="#--$DOMAIN_NAME-params-begin--"
-	end_tkn="#--$DOMAIN_NAME-params-end--"
-	a=$(grep -onE "$start_tkn" < "$CONFIG_FILE" | cut -d : -f1)
-	b=$(grep -onE "$end_tkn" < "$CONFIG_FILE" | cut -d : -f1)
-	a=$((a - 1))
-	b=$((b + 1))
-	sed -i "$a,$b"d "$CONFIG_FILE"
-	echo -en "$HAPROXY_LB_CONFIG" >> $CONFIG_FILE
-fi
+hgproxy_conf_file="/etc/haproxy/haproxy.cfg"
 
-if [ "$(pgrep -c haproxy)" -le 0 ]; then
-	service haproxy start
-else
-	service haproxy restart
-fi
+# Configure Load Balancer
+fname="frontend http"
+fbind="bind *:80"
+fmode="mode http"
+fdefault="default_backend web-backend"
+frontend="$fname\n\t$fbind\n\t$fmode\n\t$fdefault\n"
+
+bname="backend web-backend"
+bbalance="balance roundrobin"
+bserver1="server web1 35.229.93.37:80 check"
+bserver2="server web2 54.196.213.127:80 check"
+backend="$bname\n\t$bbalance\n\t$bserver1\n\t$bserver2"
+
+sudo sed -i "$ a $frontend" $hgproxy_conf_file
+sudo sed -i "$ a $backend" $hgproxy_conf_file
+
+# Restart HAProxy
+sudo service haproxy restart
