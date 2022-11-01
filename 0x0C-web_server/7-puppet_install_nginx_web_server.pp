@@ -8,7 +8,7 @@ file_line { 'aaaaa':
   ensure => 'present',
   path   => '/etc/nginx/sites-available/default',
   after  => 'listen 80 default_server;',
-  line   => 'rewrite ^/redirect_me https://github.com/emediongfrancis permanent;',
+  line   => 'rewrite ^/redirect_me https://github.com/Emeralda0144 permanent;',
 }
 
 file { '/var/www/html/index.html':
