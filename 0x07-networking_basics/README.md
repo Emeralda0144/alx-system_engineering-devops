@@ -158,7 +158,7 @@ What is an IP address?
     2. The unique identifier of a network interface
     3. Is a number that network devices use to connect to networks
 
-#### 3. UDP and TCP**
+#### 3. UDP and TCP
 
 ![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/3d92e3c4a470f8ecf4c73db511fcbbadaa002e1c.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230118%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230118T130442Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=d0727beae007becf6eeb97c6ee4398923e24570c43b4453b0262aaa95d4d1da5) 
 
@@ -176,7 +176,8 @@ Questions:
     1. `Have you received boxes x, y, z?`
     2. `May I increase the rate at which I am sending you boxes?`
 
-#### 4. TCP and UDP ports**
+
+#### 4. TCP and UDP ports
 Once packets have been sent to the right network device using IP using either UDP or TCP as a mode of transportation, it needs to actually enter the network device.
 
 If we continue the comparison of a network device to your house, where IP address is like your postal address, UDP and TCP ports are like the windows and doors of your place. A TCP/UDP network device has 65535 ports. Some of them are officially reserved for a specific usage, some of them are known to be used for a specific usage (but nothing is officially declared) and the rest are free of use.
@@ -225,7 +226,7 @@ unix  2      [ ACC ]     SEQPACKET  LISTENING     7156     378/systemd-udevd   /
 sylvain@ubuntu$
 ```
 
-#### 5. Is the host on the network**
+#### 5. Is the host on the network
 
 ![](https://media.giphy.com/media/uDxkJAVSU7GY8/giphy.gif)
 
