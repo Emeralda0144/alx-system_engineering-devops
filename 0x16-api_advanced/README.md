@@ -1,4 +1,7 @@
 # 0x16. API advanced
+`Python`   `Scripting`   `Back-end`   `API`
+
+![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/314/WIxXad8.png)
 
 ## Background Context
 
@@ -6,9 +9,14 @@ Questions involving APIs are common for interviews. Sometimes they’re as simpl
 
 A great API to use for some practice is the Reddit API. There’s a lot of endpoints available, many that don’t require any form of authentication, and there’s tons of information to be parsed out and presented. Getting comfortable with API calls now can save you some face during technical interviews and even outside of the job market, you might find personal use cases to make your life a little bit easier.
 
-## Learning Objectives
+### Resources
+**Read or watch:**
 
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+* [Reddit API Documentation](https://www.reddit.com/dev/api/)
+* [Query String](https://en.wikipedia.org/wiki/Query_string)
+
+## Learning Objectives
+At the end of this project, you are expected to be able to [explain to anyone](https://fs.blog/feynman-learning-technique/), **without the help of Google:**
 
 * How to read API documentation to find the endpoints you’re looking for
 * How to use an API with pagination
@@ -44,6 +52,7 @@ Requirements:
 * Prototype: `def number_of_subscribers(subreddit)`
 * If not a valid subreddit, return 0.
 * NOTE: Invalid subreddits may return a redirect to search results. Ensure that you are not following redirects.
+
 ```
 wintermancer@lapbox ~/reddit_api/project $ cat 0-main.py
 #!/usr/bin/python3
@@ -63,6 +72,7 @@ wintermancer@lapbox ~/reddit_api/project $ python3 0-main.py programming
 wintermancer@lapbox ~/reddit_api/project $ python3 0-main.py this_is_a_fake_subreddit
 0
 ```
+
 ### 1. Top Ten
 Write a function that queries the [Reddit API](https://www.reddit.com/dev/api/) and prints the titles of the first 10 hot posts listed for a given subreddit.
 
@@ -71,6 +81,7 @@ Requirements:
 - Prototype: `def top_ten(subreddit)`
 - If not a valid subreddit, print None.
 - NOTE: Invalid subreddits may return a redirect to search results. Ensure that you are not following redirects.
+
 ```
 wintermancer@lapbox ~/reddit_api/project $ cat 1-main.py
 #!/usr/bin/python3
@@ -100,6 +111,7 @@ wintermancer@lapbox ~/reddit_api/project $ python3 1-main.py this_is_a_fake_subr
 None
 wintermancer@lapbox ~/reddit_api/project $ 
 ```
+
 ### 2. Recurse it!
 Write a recursive function that queries the [Reddit API](https://www.reddit.com/dev/api/) and returns a list containing the titles of all hot articles for a given subreddit. If no results are found for the given subreddit, the function should return None.
 
@@ -113,6 +125,7 @@ Requirements:
 * NOTE: Invalid subreddits may return a redirect to search results. Ensure that you are not following redirects.
 
 Your code will NOT pass if you are using a loop and not recursively calling the function! This /can/ be done with a loop but the point is to use a recursive function. :)
+
 ```
 wintermancer@lapbox ~/reddit_api/project $ cat 2-main.py
 #!/usr/bin/python3
@@ -136,6 +149,7 @@ wintermancer@lapbox ~/reddit_api/project $ python3 2-main.py programming
 wintermancer@lapbox ~/reddit_api/project $ python3 2-main.py this_is_a_fake_subreddit
 None
 ```
+
 ### 3. Count it!
 Write a recursive function that queries the [Reddit API](https://www.reddit.com/dev/api/), parses the title of all hot articles, and prints a sorted count of given keywords (case-insensitive, delimited by spaces. `Javascript` should count as `javascript`, but `java` should not).
 
@@ -153,6 +167,7 @@ Requirements:
 Your code will NOT pass if you are using a loop and not recursively calling the function! This /can/ be done with a loop but the point is to use a recursive function. :)
 
 **Disclaimer:** number presented in this example cannot be accurate now - Reddit is hot articles are always changing.
+
 ```
 bob@dylan $ cat 100-main.py 
 #!/usr/bin/python3
