@@ -1,39 +1,74 @@
-# Postmortem
+# 0x19. Postmortem
+`DevOps`   `SysAdmin`
 
 ![Debugging](https://miro.medium.com/max/800/0*kHoWD7gJ0PC9GmBK.jpg)
 
-## Issue Summary
+#### Concepts
+*For this project, we expect you to look at this concept:*
 
-The wordpress page was down after uploading to the web server from Thursday, February 17, 2022, 12:00 AM GMT+1 to Thursday, February 17, 2022, 12:30 AM GMT+1. After this problem, 30% of users were affected. The problem was caused by a misconfiguration in the wp-settings.php file.
+* [On-call](https://intranet.alxswe.com/concepts/39)
 
-## Timeline
+### Background Context
+![Postmortem](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/294/tWUPWmR.png)
 
-* The DevOps Junior engineer upgraded the web server on February 17, 2022, at 12:00 AM GMT+1.
-* 12:05 AM GMT+1 - The WordPress site was down, according to the DevOps Junior engineer.
-* 12:07 AM GMT+1 - The web server fault was identified as "500 Internal Server Error" by the DevOps Junior engineer.
-* 12:10 AM GMT+1 - The DevOps Junior engineer began troubleshooting the web server, assuming that the issue was caused by a missing file.
-* 12:15 AM GMT+1 - After double-checking that all files were there in the `/var/www/html/` folder, the DevOps Junior Engineer concluded the issue was with the import and utilized the built-in debugging tool `strace.`
-* 12:17 AM GMT+1 - With the ```ps aux``` command, the DevOps Junior engineer looked for the process ID of `www-data.`
-* 12:19 AM GMT+1 - `curl 127.0.0.1` was used by the DevOps Junior engineer to test the `www-data` process.
-* 12:25 AM GMT+1 - When importing the `/var/www/html/wp-includes/class-wp-locale.phpp` file into the `/var/www/html/wp-settings.php` file, the DevOps Junior engineer discovered an issue.
-* 12:28 AM GMT+1 - The DevOps Junior engineer changed the import name `class-wp-locale.phpp` to `class-wp-locale.php` in the file `/var/www/html/wp-settings.php`.
-* 12:30 AM GMT+1 - The problem was addressed once the DevOps Junior engineer retested the web server with `curl 127.0.0.1`.
+Any software system will eventually fail, and that failure can come stem from a wide range of possible factors: bugs, traffic spikes, security issues, hardware failures, natural disasters, human error… Failing is normal and failing is actually a great opportunity to learn and improve. Any great Software Engineer must learn from his/her mistakes to make sure that they won’t happen again. Failing is fine, but failing twice because of the same issue is not.
 
-## Root cause and resolution
+A postmortem is a tool widely used in the tech industry. After any outage, the team(s) in charge of the system will write a summary that has 2 main goals:
 
-When the DevOps Junior engineer tried to update the wordpress site, he accidentally inserted an additional "p" letter at the end of the "class-wp-locale.php" file, changing the name to "class-wp-locale.phpp." As a result, the system failed when the "class-wp-locale.phpp" file was imported into /var/www/html/wp-settings.php since the file did not exist.
+To provide the rest of the company’s employees easy access to information detailing the cause of the outage. Often outages can have a huge impact on a company, so managers and executives have to understand what happened and how it will impact their work.
+And to ensure that the root cause(s) of the outage has been discovered and that measures are taken to make sure it will be fixed.
 
-To resolve the issue, the engineer used `strace` to examine the ongoing process (ps aux) and troubleshoot the www-data process (strace www-data). "/var/www/html/wp-includes/class-wp-locale.phpp ENOENT (No such file or directory)" is the message he read after examing it. The DevOps Junior engineer saw that the file's name was incorrect, so he opened the "/var/www/html/wp-settings.php" file, searched for "class-wp-locale.phpp," deleted the additional "p," and saved the modifications.
+#### Resources
+**Read or watch:**
+* [Incident Report, also referred to as a Postmortem](https://sysadmincasts.com/episodes/20-how-to-write-an-incident-report-postmortem)
+* [How to run a Postmortem](https://www.serverdensity.com/how-to-write-a-postmortem/)
 
-## Corrective and preventative measures
+### More Info
+#### Manual QA Review
+**It is your responsibility to request a review for your postmortem from a peer before the project’s deadline. If no peers have been reviewed, you should request a review from a TA or staff member.**
 
-To avoid this mistake, update the permissions of the `/var/www/html/wp-settings.php` file to only allow the DevOps Senior engineer to work on it, and do not allow the Junior engineers to deploy the project.
+### Tasks
 
-Follow the methods below to deal with this type of problem:
+#### 0. My first postmortem
+![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/294/pQ9YzVY.gif)
 
-* Make sure the server is up and running by sending a request to it. curl 127.0.0.1 is an example.
-* Verify that all of the relevant processes (mysql, nginx, apache, PHP) are running. `ps aux`, for example.
-* When a request comes in, debug the web server process. `strace PHP` is an example.
-* Read each message on the screen.
-* Solve the issue.
- 
+Using one of the web stack debugging project issue or an outage you have personally face, write a postmortem. Most of you will never have faced an outage, so just get creative and invent your own :)
+
+Requirements:
+
+* Issue Summary (that is often what executives will read) must contain:
+	* duration of the outage with start and end times (including timezone)
+	* what was the impact (what service was down/slow? What were user experiencing? How many % of the users were affected?)
+	* what was the root cause
+* Timeline (format bullet point, format: `time` - `keep it short, 1 or 2 sentences`) must contain:
+
+	* when was the issue detected
+	* how was the issue detected (monitoring alert, an engineer noticed something, a customer complained…)
+	* actions taken (what parts of the system were investigated, what were the assumption on the root cause of the issue)
+	* misleading investigation/debugging paths that were taken
+	* which team/individuals was the incident escalated to
+	* how the incident was resolved
+* Root cause and resolution must contain:
+
+	* explain in detail what was causing the issue
+	* explain in detail how the issue was fixed
+* Corrective and preventative measures must contain:
+
+	* what are the things that can be improved/fixed (broadly speaking)
+	* a list of tasks to address the issue (be very specific, like a TODO, example: patch Nginx server, add monitoring on server memory…)
+* Be brief and straight to the point, between 400 to 600 words
+
+While postmortem format can vary, stick to this one so that you can get properly reviewed by your peers.
+
+Please, remember that these blogs must be written in English to further your technical ability in a variety of settings.
+
+**Add URLs here:**
+
+#### 1. Make people want to read your postmortem
+We are constantly stormed by a quantity of information, it’s tough to get people to read you.
+
+Make your post-mortem attractive by adding humour, a pretty diagram or anything that would catch your audience attention.
+
+Please, remember that these blogs must be written in English to further your technical ability in a variety of settings.
+
+**Add URLs here:**
