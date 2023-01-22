@@ -1,7 +1,16 @@
 # 0x0E. Web stack debugging #1
 
-## Requirements
-### General
+#### Concepts
+*For this project, we expect you to look at these concepts:*
+
+* [Network basics](https://intranet.alxswe.com/concepts/33)
+* [Web stack debugging](https://intranet.alxswe.com/concepts/68)
+
+![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/271/B4eeypV.jpg)
+
+### Requirements
+
+#### General
 * Allowed editors: `vi`, `vim`, `emacs`
 * All your files will be interpreted on Ubuntu 20.04 LTS
 * All your files should end with a new line
@@ -13,14 +22,17 @@
 * The second line of all your Bash scripts should be a comment explaining what is the script doing
 * You are not allowed to use `wget`
 
-## Tasks
-### 0. Nginx likes port 80
+### Tasks
+
+#### 0. Nginx likes port 80
+
 Using your debugging skills, find out what’s keeping your Ubuntu container’s Nginx installation from listening on port `80`. Feel free to install whatever tool you need, start and destroy as many containers as you need to debug the issue. Then, write a Bash script with the minimum number of commands to automate your fix.
 
 Requirements:
 
 * Nginx must be running, and listening on port `80` of all the server’s active IPv4 IPs
 * Write a Bash script that configures a server to the above requirements
+
 ```
 root@966c5664b21f:/# curl 0:80
 curl: (7) Failed to connect to 0 port 80: Connection refused
@@ -56,7 +68,7 @@ Commercial support is available at
 root@966c5664b21f:/#
 ```
 
-### 1. Make it sweet and short
+#### 1. Make it sweet and short
 Using what you did for task #0, make your fix short and sweet.
 
 Requirements:
