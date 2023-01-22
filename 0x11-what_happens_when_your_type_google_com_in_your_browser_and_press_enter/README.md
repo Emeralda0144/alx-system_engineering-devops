@@ -8,10 +8,17 @@ A way to easily assess this is to simply ask an engineer to explain how a softwa
 
 Let’s practice by exploring the infrastructure side (network, servers, security…) of the question.
 
+![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/298/aJPw3mw.jpg)
+
 ## Requirements
 ### General
 * You can post your blog post on the platform of your choice, LinkedIn or Medium are good ones.
-* A README.md file, at the root of the folder of the project, is mandatory.
+* A `README.md` file, at the root of the folder of the project, is mandatory.
+
+### More Info
+
+#### Manual QA Review
+**It is your responsibility to request a review for your blog from a peer before the project’s deadline. If no peers have been reviewed, you should request a review from a TA or staff member.**
 
 ## Tasks
 ### 0. What happens when...
@@ -36,6 +43,8 @@ Publish your blog post on Medium or LinkedIn; share the URL of your blog post in
 
 Please, remember that these blogs must be written in English to further your technical ability in a variety of settings.
 
+**Add URLs here:**
+
 ## 1. Everything's better with a pretty diagram
 Add a schema to your blog post illustrating the flow of the request created when you type `https://www.google.com` in your browser and press `Enter`.
 
@@ -49,12 +58,19 @@ The diagram should show:
 * that the web server answers the request by serving a web page
 * that the application server generates the web page
 * that the application server request data from the database
-* [Gliffy](https://www.gliffy.com/) is free and what I personally use, but feel free to use what fits you best.
+
+[Gliffy](https://www.gliffy.com/) is free and what I personally use, but feel free to use what fits you best.
+
+Some unrelated examples:
+![](http://i.imgur.com/i9ivkdo.png)
+
+**Add URLs here:**
+
 
 ## 2. Contribute!
 Folks on the Internet have been trying to put together a comprehensive answer to the question. Help them by submitting a pull request. Paste the link in your answer file.
 
-https://github.com/alex/what-happens-when#the-g-key-is-pressed
+(https://github.com/alex/what-happens-when#the-g-key-is-pressed)
 
 Requirements:
 
@@ -62,4 +78,4 @@ Requirements:
 * Share the pull request URL in your answer file and in the field below
 Please, remember that these blogs must be written in English to further your technical ability in a variety of settings.
 
-
+**Add URLs here:**
