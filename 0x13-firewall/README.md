@@ -1,6 +1,25 @@
-# Firewall
-## Background Context
+# 0x13. Firewall
+`DevOps`    `SysAdmin`   `Security`
+
+#### Concepts
+*For this project, we expect you to look at this concept:*
+
+* [Web stack debugging](https://intranet.alxswe.com/concepts/68)
+
+![Firewall](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/284/V1HjQ1Y.png)
+
+### Background Context
+**Your servers without a firewall…**
+![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/155/holbertonschool-firewall.gif)
+
+### Resources
+
+**Read or watch:**
+* [What is a firewall](https://en.wikipedia.org/wiki/Firewall_%28computing%29)
+
+### More Info
 As explained in the **web stack debugging guide** concept page, `telnet` is a very good tool to check if sockets are open with `telnet IP PORT`. For example, if you want to check if port 22 is open on `web-02`:
+
 ```
 sylvain@ubuntu$ telnet web-02.holberton.online 22
 Trying 54.89.38.100...
@@ -35,7 +54,7 @@ Be very careful with firewall rules! For instance, if you ever deny port `22/TCP
 
 ## Tasks
 ### 0. Block all incoming traffic but
-Let’s install the ufw firewall and setup a few rules on `web-01`.
+Let’s install the `ufw` firewall and setup a few rules on `web-01`.
 
 Requirements:
 
@@ -53,7 +72,9 @@ Requirements:
 
 * Configure `web-01` so that its firewall redirects port `8080/TCP` to port `80/TCP`.
 * Your answer file should be a copy of the `ufw` configuration file that you modified to make this happen
+
 Terminal in `web-01`:
+
 ```
 root@03-web-01:~# netstat -lpn
 Active Internet connections (only servers)
