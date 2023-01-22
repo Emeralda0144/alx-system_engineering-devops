@@ -1,4 +1,7 @@
 # 0x1B. Web stack debugging #4
+`DevOps`   `SysAdmin`   `Scripting`    `Debugging`
+
+![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/313/frdkCrb.jpg)
 
 ## Requirements
 
@@ -147,7 +150,7 @@ root@0a62aa706eb3:/#
 ```
 
 ### 1. User limit
-Change the OS configuration so that it is possible to login with the holberton user and open a file without any error message.
+Change the OS configuration so that it is possible to login with the `holberton` user and open a file without any error message.
 
 ```
 root@079b7269ec1b:~# su - holberton
