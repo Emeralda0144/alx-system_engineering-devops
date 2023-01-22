@@ -1,4 +1,12 @@
 # 0x18. Webstack monitoring
+`DevOps`  `SysAdmin`  `monitoring1`
+
+#### Concepts
+*For this project, we expect you to look at these concepts:*
+* [Monitoring](https://intranet.alxswe.com/concepts/13)
+* [Server](https://intranet.alxswe.com/concepts/67)
+
+![Monitoring](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/281/hb3pAsO.png)
 
 ## Background Context
 “You cannot fix or improve what you cannot measure” is a famous saying in the Tech industry. In the age of the data-ism, monitoring how our Software systems are doing is an important thing. In this project, we will implement one of many tools to measure what is going on our servers.
@@ -7,6 +15,15 @@ Web stack monitoring can be broken down into 2 categories:
 
 * Application monitoring: getting data about your running software and making sure it is behaving as expected
 * Server monitoring: getting data about your virtual or physical server and making sure they are not overloaded (could be CPU, memory, disk or network overload)
+
+![](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-sysadmin_devops/281/ktCXnhE.jpg)
+
+### Resources
+**Read or watch:**
+* [What is server monitoring](https://www.sumologic.com/glossary/server-monitoring/)
+* [What is application monitoring](https://en.wikipedia.org/wiki/Application_performance_management)
+* [System monitoring by Google](https://sre.google/sre-book/monitoring-distributed-systems/)
+* [Nginx logging and monitoring](https://docs.nginx.com/nginx/admin-guide/monitoring/logging/)
 
 ## Learning Objectives
 At the end of this project, you are expected to be able to [explain to anyone](https://fs.blog/feynman-learning-technique/),**without the help of Google:**
@@ -38,16 +55,22 @@ Any form of plagiarism is strictly forbidden and will result in removal from the
 ## Tasks
 ### 0. Sign up for Datadog and install datadog-agent
 For this task head to [https://www.datadoghq.com/](https://www.datadoghq.com/) and sign up for a free `Datadog` account. When signing up, you’ll have the option of selecting statistics from your current stack that `Datadog` can monitor for you. Once you have an account set up, follow the instructions given on the website to install the `Datadog` agent.
+
+![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2019/6/6b0ea6345a6375437845.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230122T011506Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=5047083b6978efbaf14a5d43d0061a174f30497c91472f860a2369418e4ea2e1)
+
 * Sign up for Datadog - **Please make sure you are using the US website of Datagog (.com)**
 * Install `datadog-agent` on `web-01`
 * Create an `application key`
-* Copy-paste in your Intranet user profile [(here)] your DataDog `API key` and your DataDog `application key`.
+* Copy-paste in your Intranet user profile [here](https://intranet.alxswe.com/users/my_profile) your DataDog `API key` and your DataDog `application key`.
 * Your server `web-01` should be visible in Datadog under the host name `XX-web-01`
 	* You can validate it by using this [API](https://docs.datadoghq.com/api/latest/hosts/)
 	* If needed, you will need to update the hostname of your server
 
 ### 1. Monitor some metrics
 Among the litany of data your monitoring service can report to you are system metrics. You can use these metrics to determine statistics such as reads/writes per second, which can help your company determine if/how they should scale. Set up some `monitors` within the `Datadog` dashboard to monitor and alert you of a few. You can read about the various system metrics that you can monitor here: [System Check](https://docs.datadoghq.com/integrations/system/).
+
+![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2019/6/6a4551974aadc181e97a.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230122T011506Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=832aae953094ee26d46506316c39bf4032e8f5887ce15d0f9a11440d85f394cb)
+
 * Set up a monitor that checks the number of read requests issued to the device per second.
 * Set up a monitor that checks the number of write requests issued to the device per second.
 
