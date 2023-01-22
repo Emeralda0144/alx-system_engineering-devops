@@ -1,8 +1,26 @@
 # 0x1A. Application server
+`DevOps`   `SysAdmin`
+#### Concepts
+For this project, we expect you to look at these concepts:
+
+* [Web Server](https://intranet.alxswe.com/concepts/17)
+* [Server](https://intranet.alxswe.com/concepts/67)
+* [Web stack debugging](https://intranet.alxswe.com/concepts/68)
+
+![Application server](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/9/c7d1ed0a2e10d1b4e9b3.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230122T011512Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=7950178520def5893b32328e186c817ed50f53cab2ac1d561e40f6165b52f4ec)
 
 ## Background Context
 
-Your web infrastructure is already serving web pages via Nginx that you installed in your first web stack project. While a web server can also serve dynamic content, this task is usually given to an application server. In this project you will add this piece to your infrastructure, plug it to your Nginx and make is serve your Airbnb clone project.
+Your web infrastructure is already serving web pages via `Nginx` that you installed in your [first web stack project](https://intranet.alxswe.com/projects/266). While a web server can also serve dynamic content, this task is usually given to an application server. In this project you will add this piece to your infrastructure, plug it to your `Nginx` and make is serve your Airbnb clone project.
+
+### Resources
+**Read or watch:**
+* [Application server vs web server](https://www.nginx.com/resources/glossary/application-server-vs-web-server/)
+* [How to Serve a Flask Application with Gunicorn and Nginx on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-16-04)(As mentioned in the video, do **not** install Gunicorn using `virtualenv`, just install everything globally)
+* [Running Gunicorn](https://docs.gunicorn.org/en/latest/run.html)
+* [Be careful with the way Flask manages slash](https://werkzeug.palletsprojects.com/en/0.14.x/routing/) in [route](https://flask.pocoo.org/docs/1.0/api/#flask.Flask.route) - `strict_slashes`
+* [Upstart documentation](https://upstart.ubuntu.com/cookbook/)
+
 ## Requirements
 ### General
 * A `README.md` file, at the root of the folder of the project, is mandatory
@@ -24,7 +42,7 @@ Let’s serve what you built for [AirBnB clone v2 - Web framework](https://alx-i
 
 ## Requirements:
 
-* Make sure that [task #3]() of your [SSH project](https://alx-intranet.hbtn.io/projects/244) is completed for `web-01`. The checker will connect to your servers.
+* Make sure that [task #3](https://intranet.alxswe.com/tasks/1372) of your [SSH project](https://alx-intranet.hbtn.io/projects/244) is completed for `web-01`. The checker will connect to your servers.
 * Git clone your `AirBnB_clone_v2` on your `web-01` server.
 * Configure the file `web_flask/0-hello_route.py` to serve its content from the route `/airbnb-onepage/` on port `5000`.
 * Your Flask application object must be named `app` (This will allow us to run and check your code).
@@ -54,8 +72,9 @@ Requirements:
 
 * Install `Gunicorn` and any other libraries required by your application.
 * The Flask application object should be called `app`. (This will allow us to run and check your code)
-You will serve the same content from the same route as in the previous task. You can verify that it’s working by binding a `Gunicorn` instance to localhost listening on port `5000` with your application object as the entry point.
-In order to check your code, the checker will bind a `Gunicorn` instance to port `6000`, so make sure nothing is listening on that port.
+* You will serve the same content from the same route as in the previous task. You can verify that it’s working by binding a `Gunicorn` instance to localhost listening on port `5000` with your application object as the entry point.
+* In order to check your code, the checker will bind a `Gunicorn` instance to port `6000`, so make sure nothing is listening on that port.
+
 Example:
 
 **Terminal 1:**
@@ -222,6 +241,9 @@ Requirements:
 * `Nginx` must serve this page both locally and on its public IP and port `5003`
 * Make sure to pull up your Developer Tools on your favorite browser to verify that you have no errors
 * Upload your `Nginx` config as `5-app_server-nginx_config`
+
+After loading, your website should look like this:
+![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/7a8a7c33021b1b74f9cdc1fd8f855bdb1f8cd44e.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230122%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230122T011512Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=a2bc41ed1b3b7d7196e39e1a71318a3573ba92117998cfb977f8c2e778030026)
 
 ### **6. Deploy it!**
 Once you’ve got your application server configured, you want to set it up to run by default when Linux is booted. This way when your server inevitably requires downtime (you have to shut it down or restart it for one reason or another), your `Gunicorn` process(es) will start up as part of the system initialization process, freeing you from having to manually restart them. For this we will use `systemd`. You can read more about `systemd` in the documentation posted at the top of this project but to put it succinctly, it is a system initialization daemon for the Linux OS (amongst other things). For this task you will write a `systemd` script which will start your application server for you. As mentioned in the video at the top of the project, you do not need to create a Unix socket to bind the process to.
