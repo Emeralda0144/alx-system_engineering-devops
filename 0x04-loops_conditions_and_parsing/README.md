@@ -1,5 +1,7 @@
 # 0x04. Loops, conditions and parsing
 
+`DevOps`   `Shell`   `Bash`   `Scripting`
+
 ### About `Bash` projects
 Unless stated, all your projects will be auto-corrected with Ubuntu 20.04 LTS.
 
@@ -89,7 +91,7 @@ Create a RSA key pair.
 Requirements:
 
 * Share your **public key** in your answer file `0-RSA_public_key.pub`
-* Fill the `SSH public key` field of your intranet profile with the public key you just generated
+* Fill the `SSH public key` field of your [intranet profile](https://intranet.alxswe.com/users/my_profile) with the public key you just generated
 * **Keep the private key to yourself in a secure location**, you will use it later to connect to your servers using SSH. Some storing ideas are Dropbox, Google Drive, password manager, USB key. Failing to do so will prevent you to access your servers, which will prevent you from doing your projects
 * If you decide to add a passphrase to your key, make sure to save this passphrase in a secure location, you will not be able to use your keys without the passphrase
 
@@ -167,7 +169,7 @@ sylvain@ubuntu$
 ```
 
 #### 4. If 9, say Hi!
-Write a Bash script that displays `Best School` 10 times, but for the 9th iteration, displays `Best School` and then `Hi` on a new line.
+Write a Bash script that displays `Best School` 10 times, but for the 9th iteration, displays `Best School` *and then* `Hi` on a new line.
 
 Requirements:
 
@@ -223,13 +225,15 @@ For the most curious:
 #### 6. Superstitious numbers
 Write a Bash script that displays numbers from 1 to 20 and:
 
-* displays `4` and then `bad luck from China` for the 4th loop iteration
-* displays `9` and then `bad luck from Japan` for the 9th loop iteration
-* displays `17` and then `bad luck from Italy` for the 17th loop iteration
+* displays `4` *and then* `bad luck from China` for the 4th loop iteration
+* displays `9` *and then* `bad luck from Japan` for the 9th loop iteration
+* displays `17` *and then* `bad luck from Italy` for the 17th loop iteration
+
 Requirements:
 
 * You must use the `while` loop (`for` and `until` are forbidden)
 * You must use the `case` statement
+
 ```
 sylvain@ubuntu$ ./6-superstitious_numbers
 1
@@ -265,7 +269,9 @@ Write a Bash script that displays the time for 12 hours and 59 minutes:
 * display minutes from 1 to 59
 
 Requirements:
+
 * You must use the `while` loop (`for` and `until` are forbidden)
+
 Note that in this example, we only display the first 70 lines using the `head` command.
 
 ```
@@ -427,6 +433,7 @@ Requirements:
 * Displays `Buzz` when the number is a multiple of 5
 * Otherwise, displays the number
 * In a list format
+
 ```
 sylvain@ubuntu$ ./10-fizzbuzz | head -20
 1
@@ -541,6 +548,7 @@ Read:
 
 * [IFS (internal field separator)](https://tldp.org/LDP/abs/html/internalvariables.html)
 * [Understanding /etc/passwd](https://www.cyberciti.biz/faq/understanding-etcpasswd-file-format/)
+
 The file `/etc/passwd` has already been covered in a [previous project](https://intranet.alxswe.com/projects/208) and you should be familiar with it. Today we will make up a story based on it.
 
 Write a Bash script that displays the content of the file `/etc/passwd`, using the `while` loop + IFS.
