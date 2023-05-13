@@ -1,5 +1,7 @@
 # 0x05. Processes and signals
 
+`DevOps`  `Shell`  `Bash`  `Syscall`  `Scripting`
+
 ## About `Bash` projects
 Unless stated, all your projects will be auto-corrected with Ubuntu 20.04 LTS.
 
@@ -29,12 +31,6 @@ At the end of this project, you are expected to be able to [explain to anyone](h
 * How to kill a process
 * What is a signal
 * What are the 2 signals that cannot be ignored
-
-#### Copyright - Plagiarism
-* You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.
-* You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.
-* You are not allowed to publish any content of this project.
-* Any form of plagiarism is strictly forbidden and will result in removal from the program.
 
 ### Requirements
 
@@ -260,7 +256,7 @@ Write a Bash script that displays:
 * With a `sleep 2` in between each iteration
 * `I am invincible!!!` when receiving a `SIGTERM` signal
 
-Make a copy of your `6-stop_me_if_you_can` script, name it `67-stop_me_if_you_can`, that kills the `7-highlander` process instead of the 4-to_infinity_and_beyond one.
+Make a copy of your `6-stop_me_if_you_can` script, name it `67-stop_me_if_you_can`, that kills the `7-highlander` process instead of the `4-to_infinity_and_beyond` one.
 
 Terminal #0
 
