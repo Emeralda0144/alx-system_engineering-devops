@@ -1,6 +1,6 @@
 # 0x07. Networking basics #0
 
-OSI model, LAN and WAN networks, and TCP/UDP data transfer protocols.
+`DevOps`   `Network`
 
 ###Resources
 **Read or watch:**
@@ -100,11 +100,13 @@ In this project we will mainly focus on:
 
 * The Transport layer and especially TCP/UDP
 * On the Network layer with IP and ICMP
+
 The image bellow describes more concretely how you can relate to every level.
 
 ![](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/0fc96bd99faa7941b18bcae4c5f90c6acd11791d.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20230118%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230118T130442Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=78306db85f241d89c220b4babba8c4684f8699cc6fa20d31dc0df6f99d8af388)
 
 Questions:
+
 What is the OSI model?
     1. Set of specifications that network hardware manufacturers must respect
     2. The OSI model is a conceptual model that characterizes the communication
@@ -169,10 +171,12 @@ Questions:
 * Which statement is correct for the TCP box:
     1. `It is a protocol that is transferring data in a slow way but surely`
     2. `It is a protocol that is transferring data in a fast way and might loss data along in the process`
+
 * Which statement is correct for the UDP box:
     1. `It is a protocol that is transferring data in a slow way but surely`
     2. It is a protocol that is transferring data in a fast way and might loss data along in the process`
-  * Which statement is correct for the TCP worker:
+
+* Which statement is correct for the TCP worker:
     1. `Have you received boxes x, y, z?`
     2. `May I increase the rate at which I am sending you boxes?`
 
@@ -194,6 +198,7 @@ Write a Bash script that displays listening ports:
 
 * That only shows listening sockets
 * That shows the PID and name of the program to which each socket belongs
+
 Example:
 
 ```
