@@ -1,4 +1,6 @@
-# What happens when you type holbertonschool.com in your browser and press Enter
+# 0x11. What happens when you type google.com in your browser and press Enter
+
+`DevOps`  `Network`  `SysAdmin`
 
 ## Background Context
 
@@ -63,6 +65,10 @@ The diagram should show:
 
 Some unrelated examples:
 ![](http://i.imgur.com/i9ivkdo.png)
+
+Share the URL of your diagram image in your answer file and il the field below.
+
+Please, remember that these blogs must be written in English to further your technical ability in a variety of settings.
 
 **Add URLs here:**
 
